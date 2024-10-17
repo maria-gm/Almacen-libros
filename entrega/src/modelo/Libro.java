@@ -1,11 +1,11 @@
 package modelo;
 
 public class Libro {
-private String título;
+public String título;
 public Autor autor;
-private int año_publicación;
-private int páginas;
-private Double precio;
+public int año_publicación;
+public int páginas;
+Double precio;
 
     
 public Libro(String titulo, Autor autor, int añoPublicacion, int numeroPaginas, double precio) {
@@ -45,8 +45,10 @@ this.páginas=páginas;
 public void setPrecio(double precio){
 this.precio=precio;
 }
-
-
+// calculo del ritmo de lectura
+public int calcularTiempoLectura(int ritmoLectura){
+    return páginas/ritmoLectura;
+}
 }
 
 

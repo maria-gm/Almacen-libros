@@ -22,8 +22,8 @@ public class App {
              case 4: app.menu4();
              break;
              // case default para que si ingresamos un numero que no sea del 1 al 5 vuelva a pedirte un número
-             default: System.out.println("ingrese un número del 1 al 4 o 5 para salir del programa")
-             break;
+             default: System.out.println("ingrese un número del 1 al 5");
+             
             }
              app.menu();
              index=sc.nextInt();}
@@ -41,7 +41,7 @@ public void menu() {
     System.out.println("    4) Mostrar información actual de libros");
     System.out.println("    5) Salir (se borrará toda la información)");
     System.out.println("|----------------------------------------------------|");
-    System.out.println("Seleccione una opción (1-4):");
+    System.out.println("Seleccione una opción (1-5):");
 
 }
 //crea un nuevo almacen de libros con todos los datos null
@@ -79,11 +79,11 @@ public void menu3(){
         System.out.println("Introduzca el año de publicación");
         int año_Publicación=sc.nextInt();
         System.out.println("Introduzca el número de páginas");
-        int número_páginas=sc.nextInt();
+        int páginas=sc.nextInt();
         System.out.println("Introduzca el precio"); 
         Double precio=sc.nextDouble();
         Autor autor = new Autor(nombre, apellidos, premioPlaneta);
-        Libro libro = new Libro(título, autor, año_Publicación, numeroPaginas, precio);
+        Libro libro = new Libro(título, autor, año_Publicación, páginas, precio);
         almacen.añadirLibro(libro);
         System.out.println("Libro añadido al almacén.");
         sc.close();
@@ -92,17 +92,12 @@ public void menu3(){
 }
 
 // mostrar la tabla de los libros 
-public void menu4(){
-System.out.println("|-----------------------------------------------------------------------------------------------------------------------|");
-System.out.println("| LIBROS EN EL ALMACÉN                                                                                                  |");
-System.out.println("|-----------------------------------------------------------------------------------------------------------------------|");
-System.out.println("| Título            | Año Publicación |  Autor             | Premio Planeta | Páginas | Tiempo lectura minutos |  Precio|");
-System.out.println("|-----------------------------------------------------------------------------------------------------------------------|");
-// aquí habría que añadir un bucle for 
-System.out.println("|Tiempo de lectura total del almacén:                                                                                   |");
-System.out.println("|Valor total del almacén:                                                                                               |");
-System.out.println("|-----------------------------------------------------------------------------------------------------------------------|");
-
-
-}
+public void menu4(){  
+    if (almacen == null) {
+            System.out.println("Primero debe crear un almacén (opción 1).");
+        } else if (almacen.librosAñadidos == 0) {
+            System.out.println("No hay libros en el almacén.");
+        } else {
+            almacen.mostrarLibros(ritmo_lectura);
+        }}
 }

@@ -1,9 +1,9 @@
 package modelo;
 
 public class Autor {
-private String nombre;
-private String apellidos;
-private boolean premioPlaneta; 
+public String nombre;
+public String apellidos;
+public boolean premioPlaneta; 
 public Autor(String nombre, String apellidos, boolean premioPlaneta) {
         nombre="desconocido";
         apellidos="desconocido";
