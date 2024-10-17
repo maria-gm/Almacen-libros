@@ -4,7 +4,7 @@ public class Autor {
 private String nombre;
 private String apellidos;
 private boolean premioPlaneta; 
-public Autor() {
+public Autor(String nombre, String apellidos, boolean premioPlaneta) {
         nombre="desconocido";
         apellidos="desconocido";
         premioPlaneta=false;

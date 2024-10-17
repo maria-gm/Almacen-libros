@@ -2,13 +2,15 @@ package modelo;
 
 public class Libro {
 private String título;
+public Autor autor;
 private int año_publicación;
 private int páginas;
 private Double precio;
-public Autor autor= new Autor();
+
     
-public Libro() {
+public Libro(String titulo, Autor autor, int añoPublicacion, int numeroPaginas, double precio) {
     título="desconocido";
+    this.autor=autor ;
     año_publicación=0;
     páginas=0;
     precio=0.0;
@@ -43,6 +45,8 @@ this.páginas=páginas;
 public void setPrecio(double precio){
 this.precio=precio;
 }
+
+
 }
 
 

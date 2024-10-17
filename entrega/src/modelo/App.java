@@ -4,28 +4,30 @@ import java.util.Scanner;
 
 
 public class App {
-    public static void main(String[] args) throws Exception {
+    private Almacen almacen;
+    private int ritmo_lectura=1; //Ritmo de lectura que se da por defecto
+        public static void main(String[] args) throws Exception {
         Scanner sc=new Scanner(System.in);
         App app =new App();
         app.menu();
         int index=sc.nextInt();
         while (index!=5){
-            
-            if (index==1){
-                app.menu1();
+            switch(index){
+             case 1: app.menu1();
+             break;
+             case 2: app.menu2();
+             break;
+             case 3 :app.menu3();
+             break;
+             case 4: app.menu4();
+             break;
+             // case default para que si ingresamos un numero que no sea del 1 al 5 vuelva a pedirte un número
+             default: System.out.println("ingrese un número del 1 al 4 o 5 para salir del programa")
+             break;
             }
-            if (index==2){
-                app.menu2();
-            }
-            if (index==3){
-                app.menu3();
-            }
-            if (index==4){
-                app.menu4();
-            }
-            app.menu();
-            index=sc.nextInt();
-        }
+             app.menu();
+             index=sc.nextInt();}
+        
         sc.close();
     }
 
@@ -44,8 +46,12 @@ public void menu() {
 }
 //crea un nuevo almacen de libros con todos los datos null
 public void menu1(){
-    Almacen[] almacen= new  Almacen[0];
-    System.out.println("Se ha abierto un nuevo almacén, seleccione el menu 3 para añadir libros");
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Ingrese el tamaño del nuevo almacén de libros:");
+        int tamaño = sc.nextInt();
+        almacen = new Almacen(tamaño);
+        System.out.println("Se ha creado un nuevo almacén de tamaño " + tamaño);
+        sc.close();
     }
 
 
@@ -54,39 +60,34 @@ public void menu2(){
     Scanner sc =new Scanner(System.in);
     System.out.println("establezca su ritmo de lectura (páginas/min)");
     int ritmo_lectura=sc.nextInt();
+    System.out.println("El ritmo de lectura se establcera a "+ritmo_lectura+". Si desea cambiarlo vuelva a este menu.");
     sc.close();
 }
 
 // Añadir un libro al almacen , habra que crear un objeto almacen 
 public void menu3(){
-   Scanner sc=new Scanner(System.in);
-   Libro() libro=new Libro(){String autor;
-    String título;
-    int año_Publicación;
-    int número_páginas;
-    Double precio;
-    };
-   Autor() autor =new Autor(){String nombre; String apellidos; boolean premioPlaneta;}
-Almacen almacen[]= new Almacen[0];
-  System.out.println("Introduzca el título del libro");
-   título=sc.nextLine();
-   System.out.println("Introduzca el nombre del autor");
-   nombre=sc.nextLine();
-   System.out.println("Introduzca los apellidos del autor"); 
-   apellidos=sc.nextLine();
-   System.out.println("Introduzca el año de publicación");
-   año_Publicación=sc.nextInt();
-   System.out.println("Introduzca el número de páginas");
-   número_páginas=sc.nextInt();
-   System.out.println("Introduzca el precio"); 
-   precio=c.nextDouble();
-   sc.close();
- 
-
-   
-
- 
-    
+   if (almacen==null){System.out.println("Antes debes ir al menu 1 para crear un almacén ");} 
+   else{Scanner sc=new Scanner(System.in); 
+        System.out.println("Introduzca el título del libro");
+        String título=sc.nextLine();
+        System.out.println("Introduzca el nombre del autor");
+        String nombre=sc.nextLine();
+        System.out.println("Introduzca los apellidos del autor"); 
+        String apellidos=sc.nextLine(); 
+        System.out.println("¿El autor ha ganado el Premio Planeta? (true/false):");
+        boolean premioPlaneta = sc.nextBoolean();
+        System.out.println("Introduzca el año de publicación");
+        int año_Publicación=sc.nextInt();
+        System.out.println("Introduzca el número de páginas");
+        int número_páginas=sc.nextInt();
+        System.out.println("Introduzca el precio"); 
+        Double precio=sc.nextDouble();
+        Autor autor = new Autor(nombre, apellidos, premioPlaneta);
+        Libro libro = new Libro(título, autor, año_Publicación, numeroPaginas, precio);
+        almacen.añadirLibro(libro);
+        System.out.println("Libro añadido al almacén.");
+        sc.close();
+   }
 
 }
 
