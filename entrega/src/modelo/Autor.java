@@ -5,9 +5,9 @@ public String nombre;
 public String apellidos;
 public boolean premioPlaneta; 
 public Autor(String nombre, String apellidos, boolean premioPlaneta) {
-        nombre="desconocido";
-        apellidos="desconocido";
-        premioPlaneta=false;
+        this.nombre=nombre;
+        this.apellidos=apellidos;
+        this.premioPlaneta=premioPlaneta;
         }
 //Getter
 public String  getNombre() {

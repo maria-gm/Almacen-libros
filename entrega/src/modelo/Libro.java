@@ -1,53 +1,53 @@
 package modelo;
 
 public class Libro {
-public String título;
+public String titulo;
 public Autor autor;
-public int año_publicación;
-public int páginas;
-Double precio;
+public int anioPublicacion;
+public int paginas;
+double precio;
 
     
-public Libro(String titulo, Autor autor, int añoPublicacion, int numeroPaginas, double precio) {
-    título="desconocido";
+public Libro(String titulo, Autor autor, int anioPublicacion, int paginas, double precio) {
+    this.titulo=titulo;
     this.autor=autor ;
-    año_publicación=0;
-    páginas=0;
-    precio=0.0;
+    this.anioPublicacion=anioPublicacion;
+    this.paginas=paginas;
+    this.precio=precio;
     
     }
 
 //Getter
-public String  getTítulo() {
-return título;
+public String  getTitulo() {
+return titulo;
 }
 
-public int getAño(){
-return año_publicación;
+public int getAnio(){
+return anioPublicacion;
 }
-public int getPáginas(){
-return páginas;
+public int getPaginas(){
+return paginas;
 }
 public double getPrecio(){
 return precio;
 }
 
 //Setter
-public void setTítulo(String título){
-this.título=título;
+public void setTitulo(String titulo){
+this.titulo=titulo;
 }
-public void setAño( int año_publicación) {
-this.año_publicación=año_publicación;
+public void setAño( int anioPublicacion) {
+this.anioPublicacion=anioPublicacion;
 }
-public void setPáginas( int páginas) {
-this.páginas=páginas;
+public void setPáginas( int paginas) {
+this.paginas=paginas;
 }
 public void setPrecio(double precio){
 this.precio=precio;
 }
 // calculo del ritmo de lectura
 public int calcularTiempoLectura(int ritmoLectura){
-    return páginas/ritmoLectura;
+    return paginas/ritmoLectura;
 }
 }
 
