@@ -39,7 +39,7 @@ public class Almacen {
             int tiempoLectura = libro.calcularTiempoLectura(ritmoLectura);
             tiempoTotalLectura += tiempoLectura;
             valorTotalAlmacen += libro.precio;
-            System.out.printf("| %-17s | %-15d | %-17s | %-14s | %-7d | %-22d |  %.2f |\n", 
+            System.out.printf("| %-17s | %-15d | %-17s | %-14s | %-7d | %-22d |  %-6.2f |\n", 
                               libro.titulo, 
                               libro.anioPublicacion, 
                               libro.autor.nombre + " " + libro.autor.apellidos, 
@@ -49,8 +49,8 @@ public class Almacen {
                               libro.precio);        
         }
         System.out.println("|-----------------------------------------------------------------------------------------------------------------------|");
-        System.out.printf("| Tiempo de lectura total del almacén:                                                                          %d min |\n", tiempoTotalLectura);
-        System.out.printf("| Valor total del almacén:                                                                                       %.2f |\n", valorTotalAlmacen);
+        System.out.printf("| Tiempo de lectura total del almacén:                                               | %d min                          |\n", tiempoTotalLectura);
+        System.out.printf("| Valor total del almacén:                                                                                       %6.2f |\n", valorTotalAlmacen);
         System.out.println("|-----------------------------------------------------------------------------------------------------------------------|");
     }
 }
