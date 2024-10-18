@@ -13,6 +13,7 @@ public class Almacen {
     public void añadirLibro(Libro libro) {
         if (librosAñadidos < libros.length) {
                     libros[librosAñadidos] = libro;
+                    System.out.println("Libro añadido al almacén.");
                     librosAñadidos++;
                 } else {
                     System.out.println("El almacén está lleno, no se pueden añadir más libros.");
@@ -25,7 +26,7 @@ public class Almacen {
         System.out.println("|-----------------------------------------------------------------------------------------------------------------------|");
         System.out.println("| LIBROS EN EL ALMACÉN                                                                                                  |");
         System.out.println("|-----------------------------------------------------------------------------------------------------------------------|");
-        System.out.println("| Título            | Año Publicación |  Autor             | Premio Planeta | Páginas | Tiempo lectura minutos | Precio |");
+        System.out.println("| Título            | Año Publicación | Autor             | Premio Planeta | Páginas | Tiempo lectura minutos |  Precio |");
         System.out.println("|-----------------------------------------------------------------------------------------------------------------------|");
         
         int tiempoTotalLectura = 0;
@@ -38,7 +39,7 @@ public class Almacen {
             int tiempoLectura = libro.calcularTiempoLectura(ritmoLectura);
             tiempoTotalLectura += tiempoLectura;
             valorTotalAlmacen += libro.precio;
-            System.out.printf("| %-19s | %-15d | %-16s | %-13s | %-7d | %-23d | %8.2f €|\n", 
+            System.out.printf("| %-17s | %-15d | %-17s | %-14s | %-7d | %-22d |  %.2f |\n", 
                               libro.titulo, 
                               libro.anioPublicacion, 
                               libro.autor.nombre + " " + libro.autor.apellidos, 
@@ -48,8 +49,8 @@ public class Almacen {
                               libro.precio);        
         }
         System.out.println("|-----------------------------------------------------------------------------------------------------------------------|");
-        System.out.printf("| Tiempo de lectura total del almacén: %-83d |\n", tiempoTotalLectura);
-        System.out.printf("| Valor total del almacén: %-8.2f € |\n", valorTotalAlmacen);
+        System.out.printf("| Tiempo de lectura total del almacén:                                                                          %d min |\n", tiempoTotalLectura);
+        System.out.printf("| Valor total del almacén:                                                                                       %.2f |\n", valorTotalAlmacen);
         System.out.println("|-----------------------------------------------------------------------------------------------------------------------|");
     }
 }
